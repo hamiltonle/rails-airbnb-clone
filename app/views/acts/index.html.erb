@@ -1,5 +1,3 @@
-<h1>Acts#index</h1>
-<p>Find me in app/views/acts/index.html.erb</p>
 
 # This is the form from the airbnb project. need to update though.  Not sure if need to use simple form, or partial.
 <form action="#" class="form-inline">
@@ -13,14 +11,16 @@
   <input type="submit" class="btn btn-primary btn-lg" value="Search">
 </form>
 
-# Add the acts loop here with cards
 <div class="wrapper">
   <div class="container">
     <div class="row">
-
-      # Add the acts loop here with cards
-      <div class="col-xs-4 card">
-        # Act details should go here
+      <% @acts.each do |act| %>
+        <div class="col-xs-4 card">
+        <h3><%= act.name %></h3>
+        <p>Description: <%= act.description %></p>
+        <p>Good For: <%= act.good_for %></p>
+        <p>Genre: <%= act.genre %></p>
+      <% end %>
 
       </div>
 
