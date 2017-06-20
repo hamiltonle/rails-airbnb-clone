@@ -12,12 +12,11 @@ puts 'Creating 10 fake acts...'
 10.times do
 
   act_seed = Act.new(
-    name: Faker::RockBand.name,
-    good_for: "Parties",
+    name: Faker::RockBand,
+    good_for: ["Parties", "Weddings", "Festivals"].sample,
     description: Faker::Lorem.paragraph,
-    photo: "",
-    users_id: (1..9).to_a.sample,
-    genre: "Rock"
+    genre: ["Rock", "Rap", "Acoustic"].sample
+
     )
 
   act_seed.save!
