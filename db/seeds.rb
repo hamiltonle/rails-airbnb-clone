@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 10 fake acts...'
+
+10.times do
+
+  act_seed = Act.new(
+    name: Faker::RockBand,
+    good_for: ["Parties", "Weddings", "Festivals"].sample,
+    description: Faker::Lorem.paragraph,
+    photo: https://source.unsplash.com/collection/578055,
+    users_id: (1..9).sample,
+    genre: ["Rock", "Rap", "Acoustic"].sample
+    )
+
+  act_seed.save!
+end
+
+puts 'Finished!'
