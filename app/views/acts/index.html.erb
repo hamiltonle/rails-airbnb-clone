@@ -1,18 +1,27 @@
+<h2> Find Acts by Genre </h2>
+  <%= link_to "Rock", acts_path(:genre=>"Rock") %>
+  <%= link_to "Rap", acts_path(:genre=>"Rap") %>
+  <%= link_to "Acoustic", acts_path(:genre=>"Acoustic") %>
+<h2> Find Acts by Genre </h2>
+  <%= link_to "Rock", acts_path(:genre=>"Rock") %>
+  <%= link_to "Rap", acts_path(:genre=>"Rap") %>
+  <%= link_to "Acoustic", acts_path(:genre=>"Acoustic") %>
 
 
 <div class="wrapper">
   <div class="container">
     <div class="row">
       <% @acts.each do |act| %>
-        <div class="col-xs-4 card">
-        <h3><%= act.name %></h3>
-        <p>Description: <%= act.description %></p>
-        <p>Good For: <%= act.good_for %></p>
-        <p>Genre: <%= act.genre %></p>
+        <div class="col-xs-4">
+          <div class="card">
+            <div class="card-description">
+              <h2><%= act.name %></h2>
+              <p>Good For: <%= act.good_for %></p>
+              <p>Genre: <%= act.genre %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
-
-      </div>
-
     </div>
   </div>
 </div>
