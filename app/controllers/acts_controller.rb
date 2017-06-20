@@ -1,7 +1,13 @@
 class ActsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    @acts = Act.all
+    if params[:genre]
+      @acts = Act.where(:genre => params[:genre])
+    elsif params[:good_for]
+      @acts = Act.where(:good_for => params[:good_for])
+    else
+      @acts = Act.all
+    end
   end
 
   def show
@@ -10,14 +16,6 @@ class ActsController < ApplicationController
 
   def new
     @act = Act.new
-  end
-
-  def good_for(event_type)
-    @acts = Act.where(good_for: event_type)
-  end
-
-  def genre(genre_type)
-    @acts = Act.where(genre: genre_type)
   end
 
   def create
@@ -37,8 +35,10 @@ class ActsController < ApplicationController
 
   def destroy
     @act = Act.find(params[:id])
-    @act.destroy
+    @act.delete
   end
+
+  private
 
   def act_params
     params.require(:act).permit(:name, :description, :photo, :photo_cache, :user_id, :genre,
