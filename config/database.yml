@@ -50,6 +50,7 @@ test:
   <<: *default
   database: rails-airbnb-clone_test
   host: localhost
+<<<<<<< Updated upstream
   port: 5432
   username: rails_dev
   password: password2
@@ -78,3 +79,9 @@ production:
   database: rails-airbnb-clone_production
   username: rails-airbnb-clone
   password: <%= ENV['RAILS-AIRBNB-CLONE_DATABASE_PASSWORD'] %>
+=======
+  port: "5432"
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+>>>>>>> Stashed changes
