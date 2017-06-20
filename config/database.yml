@@ -37,6 +37,3 @@ test:
   <<: *default
   database: rails-airbnb-clone_test
   host: localhost
-  port: "5432"
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
