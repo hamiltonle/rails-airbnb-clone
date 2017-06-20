@@ -16,6 +16,14 @@ class ActsController < ApplicationController
     @act = Act.new(act_params)
   end
 
+  def good_for(event_type)
+    @acts = Act.where(good_for:event_type)
+  end
+
+  def genre(genre_type)
+    @acts = Act.where(genre: genre_type)
+  end
+
   def edit
   end
 
