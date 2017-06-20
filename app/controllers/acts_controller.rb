@@ -1,6 +1,7 @@
 class ActsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
-    @acts = Acts.all
+    @acts = Act.all
   end
 
   def show
@@ -12,7 +13,7 @@ class ActsController < ApplicationController
   end
 
   def create
-    @act = Act.new
+    @act = Act.new(act_params)
   end
 
   def edit
@@ -22,5 +23,10 @@ class ActsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def act_params
+    params.require(:act).permit(:name, :description, :photo, :photo_cache, :user_id, :genre,
+     :good_for)
   end
 end
