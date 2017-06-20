@@ -8,6 +8,10 @@ gem 'puma'
 gem 'rails', '5.1.1'
 gem 'redis'
 
+gem 'faker', '~> 1.7', '>= 1.7.3'
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

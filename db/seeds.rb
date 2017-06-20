@@ -16,10 +16,10 @@ puts 'Creating 10 fake acts...'
     good_for: ["Parties", "Weddings", "Festivals"].sample,
     description: Faker::Lorem.paragraph,
     genre: ["Rock", "Rap", "Acoustic"].sample
+
     )
 
   act_seed.save!
 end
 
 puts 'Finished!'
-
