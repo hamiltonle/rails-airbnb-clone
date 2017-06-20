@@ -12,17 +12,32 @@ class ActsController < ApplicationController
     @act = Act.new
   end
 
+  def good_for(event_type)
+    @acts = Act.where(good_for: event_type)
+  end
+
+  def genre(genre_type)
+    @acts = Act.where(genre: genre_type)
+  end
+
   def create
     @act = Act.new(act_params)
+    @act.save
+    redirect_to acts_path
   end
 
   def edit
+    @act = Act.find(params[:id])
   end
 
   def update
+    @act = Act.find(params[:id])
+    @act = Act.update(act_params)
   end
 
   def destroy
+    @act = Act.find(params[:id])
+    @act.destroy
   end
 
   def act_params
