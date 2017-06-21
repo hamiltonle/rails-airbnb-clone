@@ -1,4 +1,6 @@
 <%= simple_form_for(@user) do |user| %>
   <%= user.input :name %>
+  <%= user.input :bio %>
+  <%= user.input :photo %>
   <%= user.button :submit %>
 <% end %>

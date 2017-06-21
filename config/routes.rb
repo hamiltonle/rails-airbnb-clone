@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
+
+  resources :users do
+    collection do
+      get 'dashboard', to: "users#dashboard"
+    end
+  end
 
   resources :acts do
 
@@ -16,6 +21,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :new, :create, :destroy]
 
   root to: "acts#index"
+
 
 
 #                   Prefix Verb   URI Pattern                          Controller#Action
