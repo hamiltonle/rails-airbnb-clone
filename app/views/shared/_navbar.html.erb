@@ -1,25 +1,28 @@
 <div class="navbar-gigabeat">
   <!-- Logo -->
-  <a href="/" class="navbar-gigabeat-brand">
-    <img src="images/lewagon.png" />
-  </a>
-  <p><%= link_to "Back", acts_path %></p>
+  <div id="navbar-logo">
+    <%= link_to "BW", root_path %>
+  </div>
+
+<%#= link_to image_tag("logo.png"), root_path %>
 
   <!-- Right Navigation -->
   <div class="navbar-gigabeat-right hidden-xs hidden-sm">
 
   <!-- Text link -->
-<!--   <a href="" class="navbar-gigabeat-item navbar-gigabeat-link">Dashboard</a>
- -->
+  <!-- <a href="" class="navbar-gigabeat-item navbar-gigabeat-link">Dashboard</a> -->
 
   <!-- Profile picture and dropdown -->
     <div class="navbar-gigabeat-item">
       <div class="dropdown">
         <div class="badge-container">
-          <img src="http://placehold.it/50x50" class="avatar-large dropdown-toggle" id="navbar-gigabeat-menu" data-toggle="dropdown">
+          <div data-toggle="dropdown">
+            <%= image_tag "amin.jpeg", class: "avatar-large dropdown-toggle", id: "navbar-gigabeat-menu" %>
+          </div>
           <div class="badge badge-purple">5</div>
           <ul class="dropdown-menu dropdown-menu-right navbar-gigabeat-dropdown-menu">
-            <li><%= link_to "Log out", destroy_user_session_path %></li>
+            <li><%= link_to "Dashboard", dashboard_users_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path %></li>
           </ul>
         </div>
       </div>
