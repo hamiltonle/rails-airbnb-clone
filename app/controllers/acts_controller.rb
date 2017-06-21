@@ -15,11 +15,13 @@ class ActsController < ApplicationController
   end
 
   def new
+    # @user = current_user
     @act = Act.new
   end
 
   def create
     @act = Act.new(act_params)
+    @act.user = current_user
     @act.save
     redirect_to dashboard_users_path
   end

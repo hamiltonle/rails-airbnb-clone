@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621034054) do
+ActiveRecord::Schema.define(version: 20170621174820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170621034054) do
     t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_acts_on_user_id"
     t.index ["users_id"], name: "index_acts_on_users_id"
   end
 
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170621034054) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "acts", "users"
   add_foreign_key "bookings", "acts", column: "acts_id"
   add_foreign_key "bookings", "users", column: "users_id"
 end

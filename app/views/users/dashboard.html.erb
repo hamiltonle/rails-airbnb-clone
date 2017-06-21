@@ -64,43 +64,36 @@
  -->
 
 
+ <% if current_user %>
+  <% banner_photo_path = ('images_uavnkt') %>
+<% end %>
+
+
+
+
 
     <!-- Users Acts which they've created and manage -->
     <h2 class="text-center">Acts You've Created</h2>
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498028364/images_ltkd5s.jpg');">
-          <div class="card-category">Rock</div>
-          <div class="card-description">
-            <h2>Blue Magpie Band</h2>
-            <p>Live Shows | Coporate Events</p>
+
+
+        <!-- Loops through all the users acts -->
+        <% current_user.acts.each do |act| %>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path banner_photo_path %>');">
+            <div class="card-category">Rock</div>
+              <div class="card-description">
+                <h2><%= act.name %></h2>
+                <p><%= act.genre %> | <%= act.good_for %></p>
+              </div>
+              <%= cl_image_tag current_user.photo.path, class: "card-user avatar avatar-large" %>
+              <a class="card-link" href="#" ></a>
+            </div>
           </div>
-          <%= image_tag "jojo.png", class: "card-user avatar avatar-large" %>
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498029466/etyx5u6kuz0c5iiosp1a.png');">
-          <div class="card-category">Hip Hop DJ</div>
-          <div class="card-description">
-            <h2>DJ Jojo</h2>
-            <p>Weddings | Birthdays</p>
-          </div>
-          <%= image_tag "jojo.png", class: "card-user avatar avatar-large" %>
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498028371/images_nmvxxu.jpg');">
-          <div class="card-category">Guitarist</div>
-          <div class="card-description">
-            <h2>Amin Malik</h2>
-            <p>Festivals | Funerals</p>
-          </div>
-          <%= image_tag "jojo.png", class: "card-user avatar avatar-large" %>
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
+
+        <% end %>
+
     </div>
   </div>
 </div>
