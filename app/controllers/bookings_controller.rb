@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   # Don't think we need index action, unless it's with a where parameter for the user_id
   def index
-    @bookings = Bookings.all
+    # @bookings = Bookings.all
   end
 
   def show
