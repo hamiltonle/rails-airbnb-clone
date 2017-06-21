@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get 'genre', to: "acts#genre"
     end
 
-    resources :bookings, only: [:index, :show, :update]
+    resources :bookings, only: [:index, :show, :update], shallow: true
   end
 
   resources :bookings, only: [:index, :new, :create, :destroy]
