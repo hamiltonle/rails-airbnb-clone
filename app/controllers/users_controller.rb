@@ -14,10 +14,21 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to
+    redirect_to user_path
   end
 
-  def act_params
-    params.require(:user).permit(:name)
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path
+  end
+
+# Need to add ", :photo" once attachinary is ready
+  def user_params
+    params.require(:user).permit(:name, :bio)
   end
 end
