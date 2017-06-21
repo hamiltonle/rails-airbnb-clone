@@ -1,5 +1,5 @@
 class ActsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:genre]
       @acts = Act.where(:genre => params[:genre])
