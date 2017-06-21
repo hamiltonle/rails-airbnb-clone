@@ -27,8 +27,7 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
-# Need to add ", :photo" once attachinary is ready
   def user_params
-    params.require(:user).permit(:name, :bio)
+    params.require(:user).permit(:name, :bio, photos: [])
   end
 end
