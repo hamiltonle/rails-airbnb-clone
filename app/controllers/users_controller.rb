@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to user_path
+    redirect_to act_path
   end
 
   def edit
@@ -24,11 +24,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path
+
+    redirect_to dashboard_users_path
   end
 
-# Need to add ", :photo" once attachinary is ready
+  private
+
   def user_params
-    params.require(:user).permit(:name, :bio)
+    params.require(:user).permit(:name, :bio, :photo)
   end
 end

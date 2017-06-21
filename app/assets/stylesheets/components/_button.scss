@@ -26,3 +26,18 @@
   color: white;
   background-color: $turqoise;
 }
+.btn-purple-fill {
+  opacity: 1;
+  color: $purple;
+  background-color: white;
+  font-weight: lighter;
+  border-radius: 3px;
+  padding: 10px 15px;
+}
+.btn-purple-fill:hover {
+  background-color: $purple;
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  opacity: 1;
+}
