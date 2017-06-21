@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :bookings
 
-  has_attachments :photos
+  has_attachment :photo
 end
 
