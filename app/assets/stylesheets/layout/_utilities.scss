@@ -23,10 +23,33 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+.bg-purple {
+  background: $purple;
+  opacity: 0.9;
+}
+.bg-turqoise {
+  background: $turqoise;
+  opacity: 0.9;
+}
+
+.bg-image {
+  background-image: url("http://res.cloudinary.com/bandwagon6/image/upload/v1498017597/ljiry5twke6x9yujbrkh.jpg");
+  background-size: cover;
+}
 
 // images
-
 .img-round {
   width: 150px;
   border-radius: 50%;
 }
+
+.border-round {
+  border-radius: 3px;
+}
+
+// text
+.text-white {
+  color: white;
+}
+
+

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to dashboard_users_path
+    redirect_to act_path
   end
 
   def edit
