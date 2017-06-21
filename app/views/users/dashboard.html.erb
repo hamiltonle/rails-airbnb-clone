@@ -4,6 +4,11 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <img src="http://res.cloudinary.com/bandwagon6/image/upload/v1498027861/jojo_v7wx3z.png" class="img-round">
+        <% if @user.photo? %>
+          <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+        <% end %>
+
+
       </div>
       <div class="col-xs-12 col-sm-8 text-left">
         <p>I'm a music enthusiast, who loves to listen and play music!  Looking forward to book bands for my future parties.</p>
