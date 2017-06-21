@@ -3,10 +3,12 @@
   <%= link_to "Rap", acts_path(:genre=>"Rap"), class: "btn btn-turqoise" %>
   <%= link_to "Acoustic", acts_path(:genre=>"Acoustic"), class: "btn btn-turqoise" %>
 <h2> I Want An Act That's Good For: </h2>
+
   <%= link_to "Weddings", acts_path(:good_for=>"Weddings"), class: "btn btn-purple" %>
   <%= link_to "Festivals", acts_path(:good_for=>"Festivals"), class: "btn btn-purple" %>
   <%= link_to "Parties", acts_path(:good_for=>"Parties"), class: "btn btn-purple" %>
 
+  <%= link_to "Add a new act", new_act_path, class: "btn btn-grey%>
 
 <div class="wrapper">
   <div class="container">
