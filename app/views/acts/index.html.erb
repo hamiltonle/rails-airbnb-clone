@@ -2,29 +2,26 @@
   <div class="banner-content">
     <h1>Bandwagon</h1>
     <p>Book a musical act for your next event</p>
-    <%= link_to "Sign up!", new_user_registration_path, class: "btn banner-button" %>
+    <%= link_to "Book an act", new_user_registration_path, class: "btn purple-banner-button" %>
+    <%= link_to "Get your act booked", new_act_path, class: "btn turqoise-banner-button" %>
   </div>
 </div>
 
 <div class="options-section">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <h4> Find Acts by Genre </h4>
+      <div class="col-xs-12 col-sm-6 text-center">
+        <h4> Find Acts by Genre: </h4>
           <%= link_to "Rock", acts_path(:genre=>"Rock"), class: "btn btn-turqoise" %>
           <%= link_to "Rap", acts_path(:genre=>"Rap"), class: "btn btn-turqoise" %>
           <%= link_to "Acoustic", acts_path(:genre=>"Acoustic"), class: "btn btn-turqoise" %>
       </div>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-6 text-center">
         <h4> Find An Act That's Good For: </h4>
           <%= link_to "Weddings", acts_path(:good_for=>"Weddings"), class: "btn btn-turqoise" %>
           <%= link_to "Festivals", acts_path(:good_for=>"Festivals"), class: "btn btn-turqoise" %>
           <%= link_to "Parties", acts_path(:good_for=>"Parties"), class: "btn btn-turqoise" %>
         </div>
-      <div class="col-xs-12 col-sm-4">
-        <h4>Add An Act:</h4>
-        <%= link_to "Add your act", new_act_path, class: "btn btn-purple" %>
-      </div>
     </div>
   </div>
 </div>
@@ -34,7 +31,8 @@
     <div class="row">
       <% @acts.each do |act| %>
         <div class="col-xs-12 col-sm-4">
-          <div class="card">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                   url('<% cl_image_path act.photo.path, height: 250, width: 200, crop: :fill %>')">>
 
       <!-- @Amin...here's the new card div with attachinary,...need to update for our models tho -->
       <!--     <div class="card"
