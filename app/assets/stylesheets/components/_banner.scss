@@ -10,12 +10,20 @@
   justify-content: center;
 }
 
-.banner-button {
+.purple-banner-button {
   opacity: 1;
   text-decoration: none;
   color: white;
   background-color: $purple;
 }
+
+.turqoise-banner-button {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  background-color: $turqoise;
+}
+
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
