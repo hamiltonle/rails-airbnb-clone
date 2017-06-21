@@ -1,14 +1,23 @@
-
 <!-- User Profile Banner  -->
 <div class="profile-banner banner">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <img src="http://placehold.it/200x200" class="">
+        <img src="http://res.cloudinary.com/bandwagon6/image/upload/v1498027861/jojo_v7wx3z.png" class="img-round">
+
+        <!-- user photo, once we get attachinary working -->
+        <%# if @user.photo? %>
+          <%#cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+        <%# end %>
+
+
       </div>
       <div class="col-xs-12 col-sm-8 text-left">
-        <p>Distinctio totam autem. Aut mollitia dicta velit consequatur molestiae ea enim. Qui dolorum molestiae adipisci est odio veniam.  Distinctio totam autem. Aut mollitia dicta velit consequatur molestiae ea enim. Qui dolorum molestiae adipisci est odio veniam.  Distinctio totam autem. Aut mollitia dicta velit co.</p>
+        <p>I'm a music enthusiast, who loves to listen and play music!  Looking forward to book bands for my future parties.</p>
+        <%= link_to "Add an Act", new_act_path, class: "btn btn-purple-fill" %>
+
       </div>
+
 
 
     </div>
@@ -22,10 +31,10 @@
 
     <!-- Users requests of other acts (both confirmed and declined)  -->
     <div class="container">
-      <h2 class="text-center">Your Requests</h2>
+      <h2 class="text-center">Acts You've Requested</h2>
       <div class="row">
         <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/blue_magpie.jpg');">
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498017597/ljiry5twke6x9yujbrkh.jpg');">
             <div class="card-category">Rock</div>
             <div class="card-description">
               <h2>Blue Magpie Band</h2>
@@ -43,57 +52,57 @@
 
 
     <!-- Users performances (both confirmed and declined) which are coming up -->
-    <div class="container">
+<!--     <div class="container">
       <h2 class="text-center">Your performances</h2>
       <div class="avatar">
         <img src="http://placehold.it/50x50" class="avatar dashboard-performances">
       </div>
-      <div class="booking-information">
+      <div class="booking-information"> -->
     <!--     <h3><%# @booking.acts.name %></h3>
         <p><%# @booking.address %></p>
         <p><%# @booking.time %></p> -->
-      </div>
+<!--       </div>
       <div class="booking-status">
         <p><%# @booking.booking_status %></p>
       </div>
     </div>
-
+ -->
 
 
 
     <!-- Users Acts which they've created and manage -->
-    <h2 class="text-center">Your acts</h2>
+    <h2 class="text-center">Acts You've Created</h2>
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/blue_magpie.jpg');">
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498028364/images_ltkd5s.jpg');">
           <div class="card-category">Rock</div>
           <div class="card-description">
             <h2>Blue Magpie Band</h2>
             <p>Live Shows | Coporate Events</p>
           </div>
-          <img class="card-user avatar avatar-large" src="images/hamilton.jpeg">
+          <%= image_tag "jojo.png", class: "card-user avatar avatar-large" %>
           <a class="card-link" href="#" ></a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/hip_hop.png');">
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498029466/etyx5u6kuz0c5iiosp1a.png');">
           <div class="card-category">Hip Hop DJ</div>
           <div class="card-description">
             <h2>DJ Jojo</h2>
             <p>Weddings | Birthdays</p>
           </div>
-          <img class="card-user avatar avatar-large" src="images/jojo.png">
+          <%= image_tag "jojo.png", class: "card-user avatar avatar-large" %>
           <a class="card-link" href="#" ></a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/beatles.jpg');">
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/bandwagon6/image/upload/v1498028371/images_nmvxxu.jpg');">
           <div class="card-category">Guitarist</div>
           <div class="card-description">
             <h2>Amin Malik</h2>
             <p>Festivals | Funerals</p>
           </div>
-          <img class="card-user avatar avatar-large" src="images/amin.jpeg">
+          <%= image_tag "jojo.png", class: "card-user avatar avatar-large" %>
           <a class="card-link" href="#" ></a>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <%= simple_form_for @user do |user| %>
   <%= user.input :name %>
   <%= user.input :bio %>
-  <%= user.input :photos, as: :attachinary %>
-  <%= user.button :submit %>
+  <%= user.input :photo, as: :attachinary %>
+  <%= user.button :submit, class: 'btn btn-turqoise' %>
 <% end %>
