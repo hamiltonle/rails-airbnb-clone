@@ -9,16 +9,9 @@
 .btn-purple:hover {
   opacity: 1;
   text-decoration: none;
-  color: $purple;
+  color: white;
+  background-color: $purple;
 }
-// for color fill on hover
-// .btn-purple:hover {
-//   opacity: 1;
-//   text-decoration: none;
-//   color: white;
-//   background-color: $purple;
-// }
-
 .btn-turqoise {
   color: $turqoise;
   border: 1px solid $turqoise;

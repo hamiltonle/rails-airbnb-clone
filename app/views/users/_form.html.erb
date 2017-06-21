@@ -1,0 +1,7 @@
+<%= simple_form_for(@user) do |user| %>
+  <%= user.input :name %>
+  <%= user.input :bio %>
+<!-- Will enable once attachinary is ready -->
+  <%#= user.input :photo, as: :attachinary %>
+  <%= user.button :submit %>
+<% end %>

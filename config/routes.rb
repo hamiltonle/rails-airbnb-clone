@@ -1,18 +1,27 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :users do
+    collection do
+      get 'dashboard', to: "users#dashboard"
+    end
+  end
+
   resources :acts do
     collection do
       get 'good_for', to: "acts#good_for"
       get 'genre', to: "acts#genre"
     end
-    resources :bookings, only: [:index, :show, :update]
+
+    resources :bookings, only: [:index, :show, :update], shallow: true
+
   end
 
   resources :bookings, only: [:index, :new, :create, :destroy]
   root to: "acts#index"
   mount Attachinary::Engine => "/attachinary"
 end
+
 
 
 
