@@ -3,18 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <img src="http://res.cloudinary.com/bandwagon6/image/upload/v1498027861/jojo_v7wx3z.png" class="img-round">
-
-        <!-- user photo, once we get attachinary working -->
-        <%# if @user.photo? %>
-          <%#cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
-        <%# end %>
-
-
+        <%= cl_image_tag current_user.photo.path, class: "img-round" %>
 
       </div>
       <div class="col-xs-12 col-sm-8 text-left">
-        <p>I'm a music enthusiast, who loves to listen and play music!  Looking forward to book bands for my future parties.</p>
+        <h2><%= current_user.name %></h2>
+        <p><%= current_user.bio %></p>
         <%= link_to "Add an Act", new_act_path, class: "btn btn-purple-fill" %>
 
       </div>
