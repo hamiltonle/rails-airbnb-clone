@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/bandbannerimage.jpg');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('bandbannerimage.jpg') %>);">
   <div class="banner-content">
     <h1>Bandwagon</h1>
     <p>Book a musical act for your next event</p>
@@ -37,7 +37,7 @@
       <% @acts.each do |act| %>
         <div class="col-xs-12 col-sm-4">
          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('assets/beatles.jpg')">
+         url(<%= image_path('beatles.jpg') %>)">
 
       <!-- @Amin...here's the new card div with attachinary,...need to update for our models tho -->
       <!--     <div class="card"
