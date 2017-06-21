@@ -30,13 +30,14 @@
   </div>
 </div>
 
+
 <div class="wrapper">
   <div class="container">
     <div class="row">
       <% @acts.each do |act| %>
         <div class="col-xs-12 col-sm-4">
          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path act.photo, height: 250, width: 250, crop: :fill unless act.photo.blank?%>')">
+         url('assets/beatles.jpg')">
 
       <!-- @Amin...here's the new card div with attachinary,...need to update for our models tho -->
       <!--     <div class="card"

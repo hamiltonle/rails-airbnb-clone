@@ -1,9 +1,18 @@
+<<<<<<< Updated upstream
  <%= simple_form_for @act, :html=> { class: 'form-group' } do |f| %>
+=======
+ <%= simple_form_for @act do |f| %>
+>>>>>>> Stashed changes
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :good_for %>
       <%= f.input :genre %>
+<<<<<<< Updated upstream
       <%= f.input :photos, as: :attachinary %>
+=======
+      <%= f.input :photo %>
+      <%= f.input :photo_cache %>
+>>>>>>> Stashed changes
       <%= f.button :submit %>
     <% end %>
 
