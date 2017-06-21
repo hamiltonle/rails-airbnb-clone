@@ -14,6 +14,13 @@
       <% @acts.each do |act| %>
         <div class="col-xs-4">
           <div class="card">
+
+      <!-- @Amin...here's the new card div with attachinary,...need to update for our models tho -->
+      <!--     <div class="card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                   url('<%# cl_image_path @product.photo.path, height: 300, width: 400, crop: :fill %>')">
+            -->
+
             <div class="card-description">
               <h2><%= link_to act.name, act_path(act) %></h2>
               <p>Good For: <%= act.good_for %></p>
