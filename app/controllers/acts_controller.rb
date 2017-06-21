@@ -21,7 +21,7 @@ class ActsController < ApplicationController
   def create
     @act = Act.new(act_params)
     @act.save
-    redirect_to acts_path
+    redirect_to dashboard_users_path
   end
 
   def edit
