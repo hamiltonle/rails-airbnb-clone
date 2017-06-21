@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
+
+  resources :users do
+    collection do
+      get 'dashboard', to: "users#dashboard"
+    end
+  end
 
   resources :acts do
 
@@ -10,12 +15,13 @@ Rails.application.routes.draw do
       get 'genre', to: "acts#genre"
     end
 
-    resources :bookings, only: [:index, :show, :update]
+    resources :bookings, only: [:index, :show, :update], shallow: true
   end
 
   resources :bookings, only: [:index, :new, :create, :destroy]
 
   root to: "acts#index"
+
 
 
 #                   Prefix Verb   URI Pattern                          Controller#Action
