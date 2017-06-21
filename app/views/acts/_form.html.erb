@@ -1,9 +1,10 @@
- <%= simple_form_for @act do |f| %>
+<%= simple_form_for @act do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :good_for %>
       <%= f.input :genre %>
       <%= f.input :photos, as: :attachinary %>
       <%= f.button :submit, class: 'btn btn-purple-fill' %>
+
     <% end %>
 
