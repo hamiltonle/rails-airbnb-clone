@@ -8,7 +8,7 @@
   </div>
 </div> -->
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('blue_magpie.jpg') %>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('http://res.cloudinary.com/bandwagon6/image/upload/ljiry5twke6x9yujbrkh') %>');">
 </div>
 
 <!-- <div class="booking-form">
@@ -41,6 +41,11 @@
   <div class="description">
     <p><%= @act.description %></p>
   </div>
+
+<!-- @Kiki,....here's the code for displaying user uploaded photos...Need to revise for our models -->
+<!--   <%# @product.photos.each do |photo| %>
+    <%# cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+  <%# end %> -->
 
   <div class="samples">
   </div>

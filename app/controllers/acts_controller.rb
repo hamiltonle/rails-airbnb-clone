@@ -41,7 +41,7 @@ class ActsController < ApplicationController
   private
 
   def act_params
-    params.require(:act).permit(:name, :description, :photo, :photo_cache, :user_id, :genre,
-     :good_for)
+    params.require(:act).permit(:name, :description, :photo_cache, :user_id, :genre,
+     :good_for, photos: [])
   end
 end

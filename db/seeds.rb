@@ -7,19 +7,42 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-puts 'Creating 10 fake acts...'
+puts 'Creating 10 fake users with 2 acts each...'
 
 10.times do
 
-  act_seed = Act.new(
-    name: Faker::RockBand,
-    good_for: ["Parties", "Weddings", "Festivals"].sample,
-    description: Faker::Lorem.paragraph,
-    genre: ["Rock", "Rap", "Acoustic"].sample
-
+  user_seed = User.new(
+    email: Faker::Internet.email,
+    password: 'gigabeat',
+    password_confirmation: 'gigabeat'
     )
 
-  act_seed.save!
+  user_seed.save
+
+
+  # Creating 2 acts for each user
+  act_seed_1 = Act.new(
+    name: Faker::RockBand.name,
+    good_for: ["Parties", "Weddings", "Festivals"].sample,
+    description: Faker::Lorem.paragraph,
+    photo: "",
+    users_id: user_seed.id,
+    genre: ["Rock", "Rap", "Acoustic"].sample
+    )
+
+  act_seed_1.save!
+
+  act_seed_2 = Act.new(
+    name: Faker::RockBand.name,
+    good_for: ["Parties", "Weddings", "Festivals"].sample,
+    description: Faker::Lorem.paragraph,
+    photo: "",
+    users_id: user_seed.id,
+    genre: ["Rock", "Rap", "Acoustic"].sample
+    )
+
+  act_seed_2.save!
+
 end
 
 puts 'Finished!'
