@@ -7,7 +7,8 @@ class BookingsController < ApplicationController
 
   def show
     # will need to find booking of a particular user...@booking.user_id? & @booking.act_id?
-    @booking = Booking.find(params[:id])
+    # @booking = Booking.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
