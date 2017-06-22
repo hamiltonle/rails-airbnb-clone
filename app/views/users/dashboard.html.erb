@@ -22,7 +22,7 @@
   <div class="container">
 
     <!-- Users requests of other acts (both confirmed and declined)  -->
-<<<<<<< HEAD
+
     <div class="container">
 
 
@@ -38,9 +38,8 @@
 
 
     <% unless @bookings.count == 0 %>
-=======
     <div class="dashboard-booked container">
->>>>>>> master
+
       <h2 class="text-center">Acts You've Booked</h2>
     <% end %>
       <div class="row">
@@ -101,18 +100,17 @@
   <% banner_photo_path = ('images_uavnkt') %>
 <% end %>
     <!-- Users Acts which they've created and manage -->
-<<<<<<< HEAD
+
     <% unless @gigs.count == 0 %>
       <h2 class="text-center">Acts You've Created</h2>
     <% end %>
     <div class="row">
-=======
-    <h2 class="text-center">Acts You've Created</h2>
+
     <div class="text-center">
       <%= link_to "Add an Act", new_act_path, class: "btn purple-banner-button" %>
     </div>
     <div class="dashboard-cards row">
->>>>>>> master
+
         <!-- Loops through all the users acts -->
         <% @gigs.each do |act| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
