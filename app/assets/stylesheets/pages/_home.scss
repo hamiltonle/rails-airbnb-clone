@@ -4,8 +4,14 @@
  * ------------------------------------- */
 .how_to_section {
   display: flex;
-  align-items: center;
+  align-content: center;
   justify-content: space-around;
   padding: 50px;
   text-align: center;
+  background-color: #F1F3F4;
+}
+
+.how_to_section h4 {
+  color: black;
+  opacity: 0.8;
 }
