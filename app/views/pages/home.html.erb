@@ -39,6 +39,44 @@
 </div>
 </div>
 
+
+
+
+<div class="wrapper">
+  <div class="recommendation_section">
+  <div class="container">
+    <div class="row">
+      <h3 align="center">Here are some of our most popular bands:</h3>
+      <br>
+      <% @recommended_acts.each do |act| %>
+
+        <% if act.photos? %>
+          <% card_photo_path = act.photos.first.path %>
+        <% else %>
+          <% card_photo_path = ('beatles.jpg') %>
+        <% end %>
+
+        <div class="col-xs-12 col-sm-4">
+         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path card_photo_path %>');">
+            <div class="card-description">
+              <h2><%= link_to act.name, act_path(act) %></h2>
+              <p>Good For: <%= act.good_for %></p>
+              <p>Genre: <%= act.genre %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div align="center">
+        <%= link_to "Browse more bands", acts_path, class: "btn btn-lg turqoise-cta-button" %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
 <div class="testimonial_section">
   <figure class="snip1533">
     <figcaption>
@@ -67,34 +105,4 @@
       <h4>Newlywed</h4>
     </figcaption>
   </figure>
-</div>
-
-
-
-<div class="wrapper">
-  <div class="recommendation_section">
-  <div class="container">
-    <div class="row">
-      <h3 align="center">Here are some of our most popular bands:</h3>
-      <br>
-      <% @recommended_acts.each do |act| %>
-        <div class="col-xs-12 col-sm-4">
-         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url(<%= cl_image_tag act.photo.path if act.photo? %>)">
-            <div class="card-description">
-              <h2><%= link_to act.name, act_path(act) %></h2>
-              <p>Good For: <%= act.good_for %></p>
-              <p>Genre: <%= act.genre %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <div align="center">
-        <%= link_to "Browse more bands", acts_path, class: "btn turqoise-cta-button" %>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
