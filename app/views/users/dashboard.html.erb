@@ -3,18 +3,20 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <%= cl_image_tag current_user.photo.path, class: "img-round" %>
+
+        <% if current_user.photo? %>
+          <%= cl_image_tag current_user.photo.path, class: "img-round" %>
+        <% else %>
+          <%= image_tag "http://via.placeholder.com/200x200", class: "img-round" %>
+        <% end %>
 
       </div>
       <div class="col-xs-12 col-sm-8 text-left">
         <h2><%= current_user.name %></h2>
         <p><%= current_user.bio %></p>
         <%= link_to "Add an Act", new_act_path, class: "btn btn-purple-fill" %>
-
+        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-purple-fill" %>
       </div>
-
-
-
     </div>
   </div>
 </div>
