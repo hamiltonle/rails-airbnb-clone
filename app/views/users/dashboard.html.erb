@@ -3,21 +3,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-
          <% if @user.photo? %>
                 <%= cl_image_tag @user.photo.path, class: "img-round" %>
          <% end %>
-
       </div>
       <div class="col-xs-12 col-sm-8 text-left">
         <h2><%= @user.name %></h2>
         <p><%= @user.bio %></p>
         <%= link_to "Add an Act", new_act_path, class: "btn btn-purple-fill" %>
-
+        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-purple-fill" %>
       </div>
-
-
-
     </div>
   </div>
 </div>

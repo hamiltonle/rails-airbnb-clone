@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
 
+
   resources :users do
     collection do
       get 'dashboard', to: "users#dashboard"
@@ -18,8 +19,8 @@ Rails.application.routes.draw do
 
   end
 
-  root to: "acts#index"
-
+  resources :bookings, only: [:index, :new, :create, :destroy]
+  root to: "pages#home"
 end
 
 
