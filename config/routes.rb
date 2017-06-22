@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
+
   resources :users do
     collection do
       get 'dashboard', to: "users#dashboard"
