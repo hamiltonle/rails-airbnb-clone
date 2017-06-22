@@ -2,3 +2,10 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.how_to_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  text-align: center;
+}

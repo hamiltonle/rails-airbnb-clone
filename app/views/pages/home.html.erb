@@ -12,12 +12,48 @@
 </div>
 
 
-<div class="how_to_section">
+
+<div class="grey-wrapper"></div>
+  <div class="how_to_section">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= image_tag ('001-magnifying-glass.svg'), size: "150x150" %>
+        <h4>Search for an act</h4>
+      </div>
+      <div class="col-sm-4">
+        <%= image_tag ('003-band.svg'), size: "150x150" %>
+        <h4>Sign up to book the band of your dreams</h4>
+      </div>
+      <div class="col-sm-4">
+        <%= image_tag ('002-man-in-a-party-dancing-with-people.svg'), size: "150x150" %>
+        <h4>Get your groove on</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="wrapper" id="cards-section">
   <div class="container">
     <div class="row">
-      <div class="col-sm-3">
+      <% @recommended_acts.each do |act| %>
+        <div class="col-xs-12 col-sm-4">
+         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url(<%= cl_image_tag act.photo.path if act.photo? %>)">
 
-      </div>
+      <!-- @Amin...here's the new card div with attachinary,...need to update for our models tho -->
+      <!--     <div class="card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                   url('<%# cl_image_path @product.photo.path, height: 300, width: 400, crop: :fill %>')">
+            -->
+
+            <div class="card-description">
+              <h2><%= link_to act.name, act_path(act) %></h2>
+              <p>Good For: <%= act.good_for %></p>
+              <p>Genre: <%= act.genre %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
