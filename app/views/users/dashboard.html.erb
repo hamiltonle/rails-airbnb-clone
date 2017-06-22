@@ -4,14 +4,13 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
          <% if @user.photo? %>
-                <%= cl_image_tag @user.photo.path, class: "img-round" %>
+                <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
          <% end %>
       </div>
       <div class="col-xs-12 col-sm-8 text-left text-white">
         <h2><%= @user.name %></h2>
-        <p><%= @user.bio %></p>
-        <%= link_to "Add an Act", new_act_path, class: "btn btn-purple-fill" %>
-        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-purple-fill" %>
+        <p class="dashboard-bio"><%= @user.bio %></p>
+        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn dashboard-btn-purple-fill" %>
       </div>
     </div>
   </div>
@@ -23,8 +22,27 @@
   <div class="container">
 
     <!-- Users requests of other acts (both confirmed and declined)  -->
+<<<<<<< HEAD
     <div class="container">
+
+
+
+    <% if (@bookings.count == 0) && (@gigs.count == 0) && (@booked_acts.count == 0)%>
+      <div class="text-center padded">
+        <h2>New to Bandwagon?</h2>
+        <h3>Start out by either creating a <%= link_to "band profile", new_act_path, class: "btn-lg btn-turqoise-filled" %>, or <%= link_to "completing your profile!", edit_user_path(current_user), class: "btn-lg btn-purple-filled" %></h3>
+      </div>
+    <% end %>
+
+
+
+
+    <% unless @bookings.count == 0 %>
+=======
+    <div class="dashboard-booked container">
+>>>>>>> master
       <h2 class="text-center">Acts You've Booked</h2>
+    <% end %>
       <div class="row">
 
         <% @bookings.each do |booking| %>
@@ -79,12 +97,22 @@
  -->
 
 
- <% if @user %>
+<% if @user %>
   <% banner_photo_path = ('images_uavnkt') %>
 <% end %>
     <!-- Users Acts which they've created and manage -->
-    <h2 class="text-center">Acts You've Created</h2>
+<<<<<<< HEAD
+    <% unless @gigs.count == 0 %>
+      <h2 class="text-center">Acts You've Created</h2>
+    <% end %>
     <div class="row">
+=======
+    <h2 class="text-center">Acts You've Created</h2>
+    <div class="text-center">
+      <%= link_to "Add an Act", new_act_path, class: "btn purple-banner-button" %>
+    </div>
+    <div class="dashboard-cards row">
+>>>>>>> master
         <!-- Loops through all the users acts -->
         <% @gigs.each do |act| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
@@ -103,18 +131,34 @@
         <% end %>
     </div>
 
-<!--     <!-- Users Acts which they've created and manage
-    <h2 class="text-center">Your Upcoming Performances</h2>
+
+    <!-- Users Acts which they've created and manage -->
+
+    <% unless @booked_acts.count == 0 %>
+      <h2 class="text-center">Your Upcoming Performances</h2>
+    <% end %>
     <div class="row">
 
-        <% current_user.acts.each do |act| %>
+        <% @booked_acts.each do |gig| %>
+
+
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <h2><% act%></h2>
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path banner_photo_path %>');">
+              <div class="card-category">Rock</div>
+                <div class="card-description">
+                  <h2><%= gig.name %></h2>
+                  <p><%= gig.genre %> | <%= gig.good_for %></p>
+                </div>
+                  <% if @user.photo? %>
+                    <%= cl_image_tag @user.photo.path, class: "card-user avatar avatar-large" %>
+                  <% end %>
+                <a class="card-link" href="#" ></a>
+            </div>
           </div>
         <% end %>
 
-
-    </div> -->
+<!-- .gigs.last.bookings.last.user -->
+    </div>
 
   </div>
 </div>

@@ -43,8 +43,7 @@
 
             <div class="card-description">
               <h2><%= act.name %></h2>
-              <p><%= act.good_for %></p>
-              <p><%= act.genre %></p>
+              <p><%= act.genre %> | <%= act.good_for %></p>
             </div>
             <%= link_to "", act_path(act), class: "card-link" %>
           </div>

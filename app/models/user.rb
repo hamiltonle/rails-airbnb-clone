@@ -5,8 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :bookings
-  has_many :acts, through: :bookings
-  has_many :gigs, class_name: "Act"
+
+  #other performers you are booking
+  has_many :hosted_gigs, through: :bookings
+
+  #acts you are offering
+  has_many :acts
+
+  #acts you are booked to perform
+  def performing_gigs
+    acts.booked
+  end
 
   # has_many :act_bookings, foreign_key: "user_id", class_name: "Act"
   has_attachment :photo
