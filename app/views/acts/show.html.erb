@@ -11,7 +11,7 @@
 
 <!-- Checks if act has a photo.  if not, then will use beatles as placeholder -->
 <% if @act.photos? %>
- <% banner_photo_path = @act.photos.first.path %>
+  <% banner_photo_path = @act.photos.first.path %>
 <% else %>
   <% banner_photo_path = ('images_uavnkt') %>
 <% end %>
