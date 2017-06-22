@@ -21,7 +21,6 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :new, :create, :destroy]
   root to: "pages#home"
-  mount Attachinary::Engine => "/attachinary"
 end
 
 
