@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def dashboard
     @gigs = current_user.gigs
     @bookings = current_user.bookings
+    # @acts = current_user.acts
     @user = current_user
   end
 
