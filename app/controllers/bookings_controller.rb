@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
   def create
     @act = Act.find(params[:act_id])
-    @booking = Booking.new(bookings_param)
+    @booking = @act.bookings.new(bookings_param)
     @booking.user = current_user
     @booking.act = @act
     @booking.save

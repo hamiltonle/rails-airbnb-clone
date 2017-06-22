@@ -1,5 +1,14 @@
-<%= simple_form_for [@act, @booking] do |f| %>
-  <%= f.input :time, as: :datetime %>
+<%= simple_form_for [act, booking] do |f| %>
+  <%#= f.input :time, as: :datetime %>
+  <%#= f.input :time, input_html: {data: { provide: :datepicker}}, as: :string, :value => Time.now.strftime('%d-%m-%Y') %>
+  <%= f.input :time, as: :string, :value => Time.now.strftime('%d-%m-%Y') %>
   <%= f.input :address %>
   <%= f.button :submit, class: 'btn btn-purple-fill' %>
+<% end %>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $('#booking_time').datetimepicker();
+  <% end %>
 <% end %>

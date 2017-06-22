@@ -14,6 +14,8 @@
       <div class="flash text-center"><%= alert %></div>
       <%= yield %>
       <%= javascript_include_tag 'application' %>
+      <%= yield(:after_js) %>
+
       <%= cloudinary_js_config %>
     <%= render "shared/footer" %>
   </body>

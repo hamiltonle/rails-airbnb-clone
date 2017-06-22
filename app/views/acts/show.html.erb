@@ -87,12 +87,13 @@
         <% if current_user.id = @act.user_id %>
           <h2><%= link_to "Edit Act", edit_act_path, class: "booking-btn btn-block btn-turqoise text-center" %></h2>
         <% else %>
-          <h2><%= link_to "Book Now", booking_path, class: "booking-btn btn-block btn-turqoise text-center" %></h2>
+          <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- @Kiki,....here's the code for displaying user uploaded photos...Need to revise for our models -->
 <!--   <%# @product.photos.each do |photo| %>
