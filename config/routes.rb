@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :new, :create, :destroy]
-  root to: "acts#index"
+  root to: "pages#home"
   mount Attachinary::Engine => "/attachinary"
 end
 
