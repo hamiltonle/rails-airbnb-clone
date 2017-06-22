@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @act = Act.find(params[:act_id])
     @booking = Booking.new(bookings_param)
     @booking.user = current_user
+    @booking.act = @act
     @booking.save
     redirect_to act_path(@act.id)
   end

@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     redirect_to dashboard_users_path
   end
 
+  def dashboard
+    @gigs = current_user.gigs
+    @bookings = current_user.bookings
+    @user = current_user
+    raise
+  end
+
   private
 
   def user_params
