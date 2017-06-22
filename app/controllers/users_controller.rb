@@ -29,9 +29,9 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @gigs = current_user.gigs
+    @gigs = current_user.acts
     @bookings = current_user.bookings
-    # @acts = current_user.acts
+    @booked_acts = current_user.acts.booked
     @user = current_user
   end
 
