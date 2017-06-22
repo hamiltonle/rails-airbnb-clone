@@ -1,18 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('bandbannerimage.jpg') %>);">
-  <div class="banner-content">
-    <h1>Bandwagon</h1>
-    <p>Book a musical act for your next event</p>
-    <% if user_signed_in? %>
-    <%= link_to "Book an act", '#cards-section', class: "btn purple-banner-button" %>
-    <%= link_to "Get your act booked", new_act_path, class: "btn turqoise-banner-button" %>
-    <% else %>
-    <%= link_to "Sign up!", new_user_registration_path, class: "btn purple-banner-button" %>
-    <% end %>
-  </div>
-</div>
 
 <div class="options-section">
   <div class="container">
+    <h2 align="center">Find the perfect act</h2>
     <div class="row">
       <div class="col-xs-12 col-sm-6 text-center">
         <h4> Find Acts by Genre </h4>
