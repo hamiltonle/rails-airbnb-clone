@@ -7,39 +7,36 @@
 <%#= link_to image_tag("logo.png"), root_path %>
 
   <!-- Right Navigation -->
-  <div class="navbar-gigabeat-right hidden-xs hidden-sm">
-
-  <!-- Text link -->
-  <!-- <a href="" class="navbar-gigabeat-item navbar-gigabeat-link">Dashboard</a> -->
-
-  <!-- Profile picture and dropdown -->
-    <div class="navbar-gigabeat-item">
-      <div class="dropdown">
-        <div class="badge-container">
-          <div data-toggle="dropdown">
-            <p>Dash</p>
+  <% if user_signed_in? %>
+    <div class="navbar-gigabeat-right hidden-xs hidden-sm">
+      <div class="navbar-gigabeat-item">
+        <div class="dropdown">
+          <% if current_user.photo? %>
+            <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+            <%= image_tag "http://via.placeholder.com/200x200", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+              <ul class="dropdown-menu dropdown-menu-right navbar-gigabeat-dropdown-menu">
+                  <li>
+                    <%= link_to dashboard_users_path do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to(destroy_user_session_path, method: :delete) do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                    <% end %>
+                  </li>
+              </ul>
           </div>
-          <div class="badge badge-purple">5</div>
-          <ul class="dropdown-menu dropdown-menu-right navbar-gigabeat-dropdown-menu">
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to "Dashboard", dashboard_users_path %>
-
-              </li>
-              <li>
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to('Login', new_user_session_path)  %>
-              </li>
-            <% end %>
-          </ul>
         </div>
       </div>
-    </div>
+  <% else %>
+  <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-  </div>
+    <% end %>
+
+</div>
 
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-gigabeat-item hidden-md hidden-lg">
