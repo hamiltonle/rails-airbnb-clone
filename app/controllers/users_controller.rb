@@ -29,7 +29,10 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    # @user = current_user
+    @gigs = current_user.gigs
+    @bookings = current_user.bookings
+    @user = current_user
+    raise
   end
 
   private

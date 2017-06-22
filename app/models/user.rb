@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :bookings
-  has_many :acts
+  has_many :acts, through: :bookings
+  has_many :gigs, class_name: "Act"
 
+  # has_many :act_bookings, foreign_key: "user_id", class_name: "Act"
   has_attachment :photo
 end
 
