@@ -90,7 +90,7 @@
                 <p><%= act.genre %> | <%= act.good_for %></p>
               </div>
               <%= cl_image_tag current_user.photo.path, class: "card-user avatar avatar-large" %>
-              <a class="card-link" href="#" ></a>
+              <%= link_to "", act_path(act), class: "card-link" %>
             </div>
           </div>
 
