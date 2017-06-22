@@ -1,14 +1,15 @@
 <div class="options-section">
   <div class="container">
+    <h2 align="center">Find the perfect act</h2>
     <div class="row">
       <div class="col-xs-12 col-sm-6 text-center">
-        <h4> Find Acts by Genre: </h4>
+        <h4> Find Acts by Genre </h4>
           <%= link_to "Rock", acts_path(:genre=>"Rock"), class: "btn btn-turqoise" %>
           <%= link_to "Rap", acts_path(:genre=>"Rap"), class: "btn btn-turqoise" %>
           <%= link_to "Acoustic", acts_path(:genre=>"Acoustic"), class: "btn btn-turqoise" %>
       </div>
       <div class="col-xs-12 col-sm-6 text-center">
-        <h4> Find An Act That's Good For: </h4>
+        <h4> Find An Act That's Good For </h4>
           <%= link_to "Weddings", acts_path(:good_for=>"Weddings"), class: "btn btn-purple" %>
           <%= link_to "Festivals", acts_path(:good_for=>"Festivals"), class: "btn btn-purple" %>
           <%= link_to "Parties", acts_path(:good_for=>"Parties"), class: "btn btn-purple" %>
@@ -33,10 +34,12 @@
             -->
 
             <div class="card-description">
-              <h2><%= link_to act.name, act_path(act) %></h2>
-              <p>Good For: <%= act.good_for %></p>
-              <p>Genre: <%= act.genre %></p>
+              <!-- <h2><%= link_to act.name, act_path(act) %></h2> -->
+              <h2><%= act.name %></h2>
+              <p><%= act.good_for %></p>
+              <p><%= act.genre %></p>
             </div>
+            <%= link_to "", act_path(act), class: "card-link" %>
           </div>
         </div>
       <% end %>

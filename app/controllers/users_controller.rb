@@ -28,10 +28,6 @@ class UsersController < ApplicationController
     redirect_to dashboard_users_path
   end
 
-  def dashboard
-    # @user = current_user
-  end
-
   private
 
   def user_params

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  mount Attachinary::Engine => "/attachinary"
   devise_for :users
+
 
   resources :users do
     collection do
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
       get 'genre', to: "acts#genre"
     end
 
-    resources :bookings, only: [:index, :show, :update], shallow: true
+    resources :bookings, shallow: true
 
   end
 
