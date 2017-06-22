@@ -3,10 +3,10 @@
     <h1>Bandwagon</h1>
     <p>Book a musical act for your next event</p>
     <% if user_signed_in? %>
-    <%= link_to "Book an act", '#cards-section', class: "btn purple-banner-button" %>
+    <%= link_to "Book an act", acts_path, class: "btn purple-banner-button" %>
     <%= link_to "Get your act booked", new_act_path, class: "btn turqoise-banner-button" %>
     <% else %>
-    <%= link_to "Sign up!", new_user_registration_path, class: "btn purple-banner-button" %>
+    <%= link_to "Browse bands", acts_path, class: "btn purple-banner-button" %>
     <% end %>
   </div>
 </div>
@@ -17,15 +17,21 @@
   <div class="how_to_section">
     <div class="row">
       <div class="col-sm-4">
-        <%= image_tag ('001-magnifying-glass.svg'), size: "150x150" %>
+        <%= link_to acts_path do %>
+          <%= image_tag "001-magnifying-glass.svg", size: "150x150" %>
+        <% end %>
         <h4>Search through a wide variety of bands</h4>
       </div>
       <div class="col-sm-4">
-        <%= image_tag ('003-band.svg'), size: "150x150" %>
+        <%= link_to acts_path do %>
+          <%= image_tag "003-band.svg", size: "150x150" %>
+        <% end %>
         <h4>Book the perfect band</h4>
       </div>
       <div class="col-sm-4">
-        <%= image_tag ('002-man-in-a-party-dancing-with-people.svg'), size: "150x150" %>
+        <%= link_to acts_path do %>
+          <%= image_tag "002-man-in-a-party-dancing-with-people.svg", size: "150x150" %>
+        <% end %>
         <h4>Get your groove on</h4>
       </div>
     </div>
@@ -83,6 +89,11 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="row">
+      <div align="center">
+        <%= link_to "Browse more bands", acts_path, class: "btn turqoise-cta-button" %>
+      </div>
     </div>
   </div>
 </div>
