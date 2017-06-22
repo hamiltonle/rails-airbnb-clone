@@ -1,36 +1,37 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('bandbannerimage.jpg') %>);">
+<!-- <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%# image_path('bandbannerimage.jpg') %>);"> -->
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_video_tag("342466858_ndfyo9", :bit_rate=>"166") %>')">
   <div class="banner-content">
     <h1>Bandwagon</h1>
     <p>Book a musical act for your next event</p>
     <% if user_signed_in? %>
-    <%= link_to "Book an act", acts_path, class: "btn purple-banner-button" %>
-    <%= link_to "Get booked", new_act_path, class: "btn turqoise-banner-button" %>
+    <%= link_to "Book an act", acts_path, class: "btn btn-lg purple-banner-button" %>
+    <%= link_to "Get booked", new_act_path, class: "btn btn-lg turqoise-banner-button" %>
     <% else %>
     <%= link_to "Browse bands", acts_path, class: "btn purple-banner-button" %>
     <% end %>
   </div>
 </div>
 
-
+<%= cl_video_tag("342466858_ndfyo9", :bit_rate=>"166") %>
 
 <div class="grey-wrapper"></div>
-  <div class="how_to_section">
+  <div class="how_to_section padded">
     <div class="row">
       <div class="col-sm-4">
         <%= link_to acts_path do %>
-          <%= image_tag "001-magnifying-glass.svg", size: "150x150" %>
+          <%= image_tag "001-magnifying-glass.svg", size: "100x100" %>
         <% end %>
         <h4>Search through a wide variety of bands</h4>
       </div>
       <div class="col-sm-4">
         <%= link_to acts_path do %>
-          <%= image_tag "003-band.svg", size: "150x150" %>
+          <%= image_tag "003-band.svg", size: "100x100" %>
         <% end %>
         <h4>Book the perfect band</h4>
       </div>
       <div class="col-sm-4">
         <%= link_to acts_path do %>
-          <%= image_tag "002-man-in-a-party-dancing-with-people.svg", size: "150x150" %>
+          <%= image_tag "002-man-in-a-party-dancing-with-people.svg", size: "100x100" %>
         <% end %>
         <h4>Get your groove on</h4>
       </div>
@@ -42,7 +43,7 @@
 
 
 
-<div class="wrapper">
+<div class="wrapper padded">
   <div class="recommendation_section">
   <div class="container">
     <div class="row">
@@ -57,7 +58,7 @@
         <% end %>
 
         <div class="col-xs-12 col-sm-4">
-         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path card_photo_path %>');">
+         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path card_photo_path %>');">
             <div class="card-description">
               <h2><%= link_to act.name, act_path(act) %></h2>
               <p>Good For: <%= act.good_for %></p>
@@ -69,7 +70,11 @@
     </div>
     <div class="row">
       <div align="center">
-        <%= link_to "Browse more bands", acts_path, class: "btn btn-lg turqoise-cta-button" %>
+      <h2 class="text-purple"> Find Acts by Genre </h2>
+          <%= link_to "Rock", acts_path(:genre=>"Rock"), class: "btn btn-lg btn-purple" %>
+          <%= link_to "Rap", acts_path(:genre=>"Rap"), class: "btn btn-lg btn-purple" %>
+          <%= link_to "Acoustic", acts_path(:genre=>"Acoustic"), class: "btn btn-lg btn-purple" %>
+        <%= link_to "...or browse all bands", acts_path, class: "btn btn-lg btn-turqoise" %>
       </div>
     </div>
   </div>
@@ -77,11 +82,11 @@
 </div>
 
 
-<div class="testimonial_section">
+<div class="testimonial_section grey-wrapper padded">
   <figure class="snip1533">
     <figcaption>
       <blockquote>
-        <p>Bandwagon is my first and last stop for finding suitable bands for my events.</p>
+        <p><br>Bandwagon is my first and last stop for finding suitable bands for my events.<br><br></p>
       </blockquote>
       <h3>P. Diddy</h3>
       <h4>Event Planner</h4>
@@ -90,7 +95,7 @@
   <figure class="snip1533">
     <figcaption>
       <blockquote>
-        <p>Finding new gigs has never been simpler!</p>
+        <p><br><br>Finding new gigs has never been simpler!<br><br><br></p>
       </blockquote>
       <h3>Keith Richards</h3>
       <h4>The Rolling Stones</h4>
