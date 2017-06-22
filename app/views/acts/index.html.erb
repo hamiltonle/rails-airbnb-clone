@@ -1,6 +1,14 @@
+<div id="index-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('banner2.jpeg') %>);">
+  <div class="banner-content">
+    <div id="index-heading">
+      <h1>Find the perfect act</h1>
+    </div>
+  </div>
+</div>
+
 <div class="options-section">
   <div class="container">
-    <h2 align="center">Find the perfect act</h2>
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 text-center">
         <h4> Find Acts by Genre </h4>
@@ -34,7 +42,6 @@
             -->
 
             <div class="card-description">
-              <!-- <h2><%= link_to act.name, act_path(act) %></h2> -->
               <h2><%= act.name %></h2>
               <p><%= act.good_for %></p>
               <p><%= act.genre %></p>

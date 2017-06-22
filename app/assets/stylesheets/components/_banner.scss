@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: center;
 }
 
 .purple-banner-button {
@@ -40,4 +41,14 @@
   background-color: $turqoise;
   height: 50vh;
   background: linear-gradient(-225deg, $turqoise, $purple);
+}
+
+#index-banner {
+  height: 40vh;
+  background-position: center;
+  margin-bottom: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
