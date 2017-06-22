@@ -9,8 +9,8 @@
       </div>
       <div class="col-xs-12 col-sm-8 text-left text-white">
         <h2><%= @user.name %></h2>
-        <p><%= @user.bio %></p>
-        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn-dashboard-edit-profile" %>
+        <p class="dashboard-bio"><%= @user.bio %></p>
+        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn dashboard-btn-purple-fill" %>
       </div>
     </div>
   </div>
