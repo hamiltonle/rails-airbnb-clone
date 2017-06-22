@@ -1,9 +1,19 @@
 @import "home";
 
+
 .options-section {
   margin-top: 60px;
   margin-bottom: 60px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: black;
+}
+
+.recommendation_section {
+  background-color: white;
+}
+
+.testimonial_section {
+  padding-bottom: 40px;
 }

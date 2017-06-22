@@ -1,14 +1,13 @@
 
 
 .card {
-  height: 250px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 20px;
-  background-image: url('/assets/blue_magpie.jpg')
 }
 .card-user {
   position: absolute;

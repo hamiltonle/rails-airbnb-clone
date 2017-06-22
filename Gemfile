@@ -26,8 +26,7 @@ gem 'uglifier'
 gem 'devise'
 
 group :development, :test do
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'

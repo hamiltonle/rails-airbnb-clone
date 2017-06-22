@@ -26,7 +26,6 @@
   <div class="media">
     <div class="media-body">
 
-
     <div class="name">
       <h1><%= @act.name %></h1>
     </div>
@@ -35,17 +34,18 @@
       <h3><%= @act.genre %> | <%= @act.good_for %></h3>
     </div>
 
-    <h4>GALLERY</h4>
-    <div class="gallery-section">
-      <div class="row">
+    <div class="media-section">
+      <h4>GALLERY</h4>
+      <div class="gallery-section">
+        <div class="row">
+          <!-- Loops through all the users photos -->
+          <% @act.photos.each do |photo| %>
+            <div class="col-xs-4 gallery-image">
+              <%= cl_image_tag photo.path, height: 200, width: 200, crop: :lfill %>
+            </div>
+          <% end %>
 
-        <!-- Loops through all the users photos -->
-        <% @act.photos.each do |photo| %>
-          <div class="col-xs-4 gallery-image">
-            <%= cl_image_tag photo.path, height: 200, width: 200, crop: :lfill %>
-          </div>
-        <% end %>
-
+        </div>
       </div>
     </div>
 
@@ -84,13 +84,12 @@
 
     <div class="media-aside">
       <div class="media-section">
-        <%#= link_to "Book Now", new_act_booking_path(@act), class: "booking-btn btn-block btn-turqoise text-center" %>
-        <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
+        <% if current_user.id = @act.user_id %>
+          <h2><%= link_to "Edit Act", edit_act_path, class: "booking-btn btn-block btn-turqoise text-center" %></h2>
+        <% else %>
+          <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
+        <% end %>
       </div>
-
-
-
-
     </div>
   </div>
 </div>

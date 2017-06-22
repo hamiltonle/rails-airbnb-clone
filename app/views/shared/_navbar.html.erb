@@ -1,7 +1,9 @@
 <div class="navbar-gigabeat">
   <!-- Logo -->
   <div id="navbar-logo">
-    <%= link_to "BW", root_path %>
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+     <%= image_tag "logo.png" %>
+    <% end %>
   </div>
 
 <%#= link_to image_tag("logo.png"), root_path %>
