@@ -1,12 +1,89 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('bandbannerimage.jpg') %>);">
+  <div class="banner-content">
+    <h1>Bandwagon</h1>
+    <p>Book a musical act for your next event</p>
+    <% if user_signed_in? %>
+    <%= link_to "Book an act", '#cards-section', class: "btn purple-banner-button" %>
+    <%= link_to "Get your act booked", new_act_path, class: "btn turqoise-banner-button" %>
+    <% else %>
+    <%= link_to "Sign up!", new_user_registration_path, class: "btn purple-banner-button" %>
+    <% end %>
+  </div>
+</div>
 
-<div class="wrapper">
-  <div class="container">
+
+
+<div class="grey-wrapper"></div>
+  <div class="how_to_section">
     <div class="row">
-
-      # Boilerplate for the home page
-
+      <div class="col-sm-4">
+        <%= image_tag ('001-magnifying-glass.svg'), size: "150x150" %>
+        <h4>Search through a wide variety of bands</h4>
+      </div>
+      <div class="col-sm-4">
+        <%= image_tag ('003-band.svg'), size: "150x150" %>
+        <h4>Book the perfect band</h4>
+      </div>
+      <div class="col-sm-4">
+        <%= image_tag ('002-man-in-a-party-dancing-with-people.svg'), size: "150x150" %>
+        <h4>Get your groove on</h4>
+      </div>
     </div>
   </div>
+</div>
+</div>
+
+<div class="testimonial_section">
+  <figure class="snip1533">
+    <figcaption>
+      <blockquote>
+        <p>Bandwagon is my first and last stop for finding suitable bands for my events.</p>
+      </blockquote>
+      <h3>P. Diddy</h3>
+      <h4>Event Planner</h4>
+    </figcaption>
+  </figure>
+  <figure class="snip1533">
+    <figcaption>
+      <blockquote>
+        <p>Finding new gigs has never been simpler!</p>
+      </blockquote>
+      <h3>Keith Richards</h3>
+      <h4>The Rolling Stones</h4>
+    </figcaption>
+  </figure>
+  <figure class="snip1533">
+    <figcaption>
+      <blockquote>
+        <p>It was so easy finding a band for my wedding on Bandwagon that I am thinking of getting a divorce!</p>
+      </blockquote>
+      <h3>Kim Kardashian</h3>
+      <h4>Newlywed</h4>
+    </figcaption>
+  </figure>
+</div>
+
+
+
+<div class="wrapper">
+  <div class="recommendation_section">
+  <div class="container">
+    <div class="row">
+      <h3 align="center">Here are some of our most popular bands:</h3>
+      <br>
+      <% @recommended_acts.each do |act| %>
+        <div class="col-xs-12 col-sm-4">
+         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url(<%= cl_image_tag act.photo.path if act.photo? %>)">
+            <div class="card-description">
+              <h2><%= link_to act.name, act_path(act) %></h2>
+              <p>Good For: <%= act.good_for %></p>
+              <p>Genre: <%= act.genre %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>
