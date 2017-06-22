@@ -2,14 +2,16 @@
  * Your CSS code for flash notices and alerts
 * ------------------------------------- */
 
-.alert {
+.flash {
   margin: 0;
+  padding: 0px;
   text-align: center;
   color: white;
+  background: $turqoise;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
-  background: $red;
+  background: $purple;
 }
