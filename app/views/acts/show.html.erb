@@ -8,12 +8,24 @@
   </div>
 </div> -->
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('http://res.cloudinary.com/bandwagon6/image/upload/ljiry5twke6x9yujbrkh') %>');">
+
+<!-- Checks if act has a photo.  if not, then will use beatles as placeholder -->
+<% if @act.photos? %>
+ <% banner_photo_path = @act.photos.first.path %>
+<% else %>
+  <% banner_photo_path = ('images_uavnkt') %>
+<% end %>
+
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path banner_photo_path %>');">
 </div>
+
 
 <div class="container padded">
   <div class="media">
     <div class="media-body">
+
 
     <div class="name">
       <h1><%= @act.name %></h1>
@@ -21,6 +33,20 @@
 
     <div class="categories">
       <h3><%= @act.genre %> | <%= @act.good_for %></h3>
+    </div>
+
+    <h4>GALLERY</h4>
+    <div class="gallery-section">
+      <div class="row">
+
+        <!-- Loops through all the users photos -->
+        <% @act.photos.each do |photo| %>
+          <div class="col-xs-4 gallery-image">
+            <%= cl_image_tag photo.path, height: 200, width: 200, crop: :lfill %>
+          </div>
+        <% end %>
+
+      </div>
     </div>
 
     <div class="media-section">
