@@ -11,13 +11,16 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @act = Act.find(params[:act_id])
     @booking = Booking.new
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @act = Act.find(params[:act_id])
+    @booking = Booking.new(bookings_param)
+    @booking.user = current_user
     @booking.save
-    redirect_to bookings_path
+    redirect_to act_path(@act.id)
   end
 
   def edit
@@ -37,7 +40,7 @@ class BookingsController < ApplicationController
   private
 
   def bookings_param
-    params.require(:booking).permit(:time, :address, :booking_status, :users_id, :acts_id)
+    params.require(:booking).permit(:time, :address, :booking_status, :user_id, :act_id)
   end
 end
 

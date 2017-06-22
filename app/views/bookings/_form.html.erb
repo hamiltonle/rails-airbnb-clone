@@ -1,0 +1,5 @@
+<%= simple_form_for [@act, @booking] do |f| %>
+  <%= f.input :time, as: :datetime %>
+  <%= f.input :address %>
+  <%= f.button :submit, class: 'btn btn-purple-fill' %>
+<% end %>
