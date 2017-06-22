@@ -3,9 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-         <% if @user.photo? %>
-                <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
-         <% end %>
+        <% if @user.photo? %>
+          <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
+        <% else %>
+          <%= image_tag "http://placehold.it/200x200", class: "img-circle" %>
+
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-8 text-left text-white">
         <h2><%= @user.name %></h2>
