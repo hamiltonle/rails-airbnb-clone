@@ -84,7 +84,8 @@
 
     <div class="media-aside">
       <div class="media-section">
-        <%= link_to "Book Now", new_act_booking_path(@act), class: "booking-btn btn-block btn-turqoise text-center" %>
+        <%#= link_to "Book Now", new_act_booking_path(@act), class: "booking-btn btn-block btn-turqoise text-center" %>
+        <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
       </div>
 
 

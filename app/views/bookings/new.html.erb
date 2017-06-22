@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3 padded bg-turqoise border-round text-white ">
-        <%= render 'form' %>
+        <%= render :partial => 'form', locals: {act: @act, booking: Booking.new } %>
       </div>
     </div>
   </div>
