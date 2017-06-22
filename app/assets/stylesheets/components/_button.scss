@@ -50,3 +50,13 @@
   text-decoration: none;
   opacity: 1;
 }
+
+.dashboard-btn-purple-fill {
+  opacity: 1;
+  color: $purple;
+  background-color: white;
+  font-weight: lighter;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin-top: 30px;
+}

@@ -4,14 +4,13 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
          <% if @user.photo? %>
-                <%= cl_image_tag @user.photo.path, class: "img-round" %>
+                <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
          <% end %>
       </div>
       <div class="col-xs-12 col-sm-8 text-left text-white">
         <h2><%= @user.name %></h2>
-        <p><%= @user.bio %></p>
-        <%= link_to "Add an Act", new_act_path, class: "btn btn-purple-fill" %>
-        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-purple-fill" %>
+        <p class="dashboard-bio"><%= @user.bio %></p>
+        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn dashboard-btn-purple-fill" %>
       </div>
     </div>
   </div>
@@ -23,7 +22,7 @@
   <div class="container">
 
     <!-- Users requests of other acts (both confirmed and declined)  -->
-    <div class="container">
+    <div class="dashboard-booked container">
       <h2 class="text-center">Acts You've Booked</h2>
       <div class="row">
 
@@ -84,7 +83,10 @@
 <% end %>
     <!-- Users Acts which they've created and manage -->
     <h2 class="text-center">Acts You've Created</h2>
-    <div class="row">
+    <div class="text-center">
+      <%= link_to "Add an Act", new_act_path, class: "btn purple-banner-button" %>
+    </div>
+    <div class="dashboard-cards row">
         <!-- Loops through all the users acts -->
         <% @gigs.each do |act| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
