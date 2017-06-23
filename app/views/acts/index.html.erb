@@ -10,17 +10,23 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 text-center">
-        <h4> Find Acts by Genre </h4>
-          <%= link_to "Rock", acts_path(:genre=>"Rock"), class: "btn btn-turqoise" %>
-          <%= link_to "Rap", acts_path(:genre=>"Rap"), class: "btn btn-turqoise" %>
-          <%= link_to "Acoustic", acts_path(:genre=>"Acoustic"), class: "btn btn-turqoise" %>
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1 text-center">
+        <h4 class="text-turqoise"> Find Acts by Genre </h4>
+          <%= link_to "Rock", acts_path(:genre=>"Rock"), class: "btn btn-turqoise button-top-margin" %>
+          <%= link_to "Rap", acts_path(:genre=>"Rap"), class: "btn btn-turqoise button-top-margin" %>
+          <%= link_to "Jazz", acts_path(:genre=>"Jazz"), class: "btn btn-turqoise button-top-margin" %>
+          <%= link_to "Acoustic", acts_path(:genre=>"Acoustic"), class: "btn btn-turqoise button-top-margin" %>
+          <%= link_to "Punk", acts_path(:genre=>"Punk"), class: "btn btn-turqoise button-top-margin" %>
+          <%= link_to "Pop", acts_path(:genre=>"Pop"), class: "btn btn-turqoise button-top-margin" %>
+
       </div>
-      <div class="col-xs-12 col-sm-6 text-center">
-        <h4> Find An Act That's Good For </h4>
-          <%= link_to "Weddings", acts_path(:good_for=>"Weddings"), class: "btn btn-purple" %>
-          <%= link_to "Festivals", acts_path(:good_for=>"Festivals"), class: "btn btn-purple" %>
-          <%= link_to "Parties", acts_path(:good_for=>"Parties"), class: "btn btn-purple" %>
+      <div class="col-xs-12 col-sm-5 text-center">
+        <h4 class="text-purple"> Find An Act That's Good For </h4>
+          <%= link_to "Weddings", acts_path(:good_for=>"Weddings"), class: "btn btn-purple button-top-margin" %>
+          <%= link_to "Events", acts_path(:good_for=>"Events"), class: "btn btn-purple button-top-margin" %>
+          <%= link_to "Birthdays", acts_path(:good_for=>"Birthdays"), class: "btn btn-purple button-top-margin" %>
+          <%= link_to "Festivals", acts_path(:good_for=>"Festivals"), class: "btn btn-purple button-top-margin" %>
+          <%= link_to "Parties", acts_path(:good_for=>"Parties"), class: "btn btn-purple button-top-margin" %>
         </div>
     </div>
   </div>

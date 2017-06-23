@@ -3,13 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <img src="http://placehold.it/200x200" class="dashboard-img-round">
-      </div>
-      <!-- <div class="col-xs-12 col-sm-4">
          <% if @user.photo? %>
-                <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
+          <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
+        <% else %>
+          <img src="http://placehold.it/200x200" class="dashboard-img-round">
          <% end %>
-      </div> -->
+      </div>
       <div class="col-xs-12 col-sm-8 text-left text-white">
         <h2><%= @user.name %></h2>
         <p class="dashboard-bio"><%= @user.bio %></p>
