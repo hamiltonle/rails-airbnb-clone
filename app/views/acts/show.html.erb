@@ -23,6 +23,7 @@
 
 
 <div class="container padded">
+<div class="col-xs-12">
   <div class="media">
     <div class="media-body">
 
@@ -37,7 +38,7 @@
     <div class="media-section">
       <h4>GALLERY</h4>
       <div class="gallery-section">
-        <div class="row">
+        <div class="row gallery-padding">
           <!-- Loops through all the users photos -->
           <% @act.photos.each do |photo| %>
             <div class="col-xs-4 gallery-image">
@@ -70,16 +71,19 @@
 
     <div class="media-section">
       <h4>LISTED BY</h4>
-      <div class="listed-by">
+      <div class="listed-by text-center">
+      <div class="col-xs-6 col-xs-offset-3">
         <% if @act.user.photo? %>
-          <%= cl_image_tag @act.user.photo.path, class: "dashboard-img-round" %>
+          <%= cl_image_tag @act.user.photo.path, height: 200, width: 200, crop: :lfill, class: "dashboard-img-round" %>
         <% end %>
+      </div>
         <% if @act.user.name? %>
           <h2><%= @act.user.name %></h2>
         <% end %>
-        <%= link_to "Talk to the Manager", user_path(@act.user_id), class: "btn purple-banner-button" %>
+        <%= link_to "Talk to the Manager", user_path(@act.user_id), class: "btn purple-banner-button btn-purple-filled button-top-margin" %>
       </div>
     </div>
+  </div>
   </div>
 
 <!-- Update later with samples and reviews -->
@@ -88,18 +92,20 @@
       <div class="samples">
       </div>
     </div> -->
-
-    <div class="media-aside">
-      <div class="media-section">
-        <% if current_user && current_user.id == @act.user_id %>
-          <h2><%= link_to "Edit Your Act", edit_act_path, class: "booking-btn btn-block btn-turqoise-filled text-center" %></h2>
-        <% else %>
-          <div class="booking-btn">
-            <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
-            <% end %>
-          </div>
+    <div class="col-xs-12">
+      <div class="media-aside">
+        <div class="media-section">
+          <% if current_user && current_user.id == @act.user_id %>
+            <h2><%= link_to "Edit Your Act", edit_act_path, class: "booking-btn btn-block btn-turqoise-filled text-center" %></h2>
+          <% else %>
+            <div class="booking-btn">
+              <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
+              <% end %>
+            </div>
+        </div>
       </div>
     </div>
+
   </div>
 
     <div class="media-section-reviews">
