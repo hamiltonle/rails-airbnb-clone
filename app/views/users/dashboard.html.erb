@@ -33,7 +33,7 @@
     <% if (@bookings.count == 0) && (@gigs.count == 0) && (@booked_acts.count == 0)%>
       <div class="text-center padded">
         <h2>New to Bandwagon?</h2>
-        <h3>Start out by either creating a <%= link_to "band profile", new_act_path, class: "btn-lg btn-turqoise-filled" %>, or <%= link_to "completing your profile!", edit_user_path(current_user), class: "btn-lg btn-purple-filled" %></h3>
+        <h3>Start out by either creating a <br><%= link_to "band profile", new_act_path, class: "btn btn-turqoise-filled button-top-margin" %><br> or <br><%= link_to "completing your profile!", edit_user_path(current_user), class: "btn btn-purple-filled button-top-margin" %></h3>
       </div>
     <% end %>
 
@@ -120,11 +120,8 @@
 
       <% unless @gigs.count == 0 %>
         <h2 class="text-center text-purple">Acts You've Created</h2>
-
       <% end %>
-      <div class="text-center">
-          <%= link_to "Add more acts", new_act_path, class: "btn btn-lg purple-banner-button" %>
-        </div>
+
 
 
  <% if @user %>
@@ -158,7 +155,14 @@
           </div>
         <% end %>
         </div>
+        <% unless @gigs.count == 0 %>
+          <div class="text-center">
+            <%= link_to "Add more acts", new_act_path, class: "btn btn-lg purple-banner-button" %>
+          </div>
+        <% end %>
       </div>
+
+
 <!--  need this?   </div> -->
 
 

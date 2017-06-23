@@ -71,7 +71,9 @@
     <div class="media-section">
       <h4>LISTED BY</h4>
       <div class="listed-by">
-        <p><%= @act.users_id %></p>
+        <% if @act.user.photo? %>
+          <%= cl_image_tag @act.user.photo.path, class: "dashboard-img-round" %>
+        <% end %>
         <%= link_to "Learn more", user_path(@act.user_id), class: "btn purple-banner-button" %>
       </div>
     </div>
@@ -87,7 +89,7 @@
     <div class="media-aside">
       <div class="media-section">
         <% if current_user && current_user.id == @act.user_id %>
-          <h2><%= link_to "Edit Your Act", edit_act_path, class: "booking-btn btn-block btn-turqoise text-center" %></h2>
+          <h2><%= link_to "Edit Your Act", edit_act_path, class: "booking-btn btn-block btn-turqoise-filled text-center" %></h2>
         <% else %>
           <div class="booking-btn">
             <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
