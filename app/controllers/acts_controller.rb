@@ -32,7 +32,7 @@ class ActsController < ApplicationController
 
   def update
     @act = Act.find(params[:id])
-    @act = Act.update(act_params)
+    @act.update(act_params)
     redirect_to act_path
   end
 
