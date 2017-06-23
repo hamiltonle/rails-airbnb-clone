@@ -43,6 +43,7 @@ puts 'Creating 10 fake users with 1-3 acts each...'
       'https://source.unsplash.com/collection/572418',
       'https://source.unsplash.com/collection/520930',
       'https://source.unsplash.com/collection/639550',
+      'https://source.unsplash.com/collection/928171',
       'https://source.unsplash.com/collection/632279'
     ]
     puts "act photos done"

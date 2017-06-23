@@ -85,7 +85,7 @@
     <div class="media-aside">
       <div class="media-section">
         <% if current_user && current_user.id == @act.user_id %>
-          <h2><%= link_to "Edit Act", edit_act_path, class: "booking-btn btn-block btn-turqoise text-center" %></h2>
+          <h2><%= link_to "Edit Your Act", edit_act_path, class: "booking-btn btn-block btn-turqoise text-center" %></h2>
         <% else %>
           <%= render :partial => 'bookings/form', locals: {act: @act, booking: Booking.new } %>
         <% end %>
