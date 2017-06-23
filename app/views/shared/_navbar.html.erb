@@ -20,7 +20,7 @@
           <% if current_user.photo? %>
             <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-            <%= image_tag "http://via.placeholder.com/200x200", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag "https://via.placeholder.com/200x200", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
               <ul class="dropdown-menu dropdown-menu-right navbar-gigabeat-dropdown-menu">
                   <li>
@@ -59,3 +59,5 @@
 
   </div>
 </div>
+
+
