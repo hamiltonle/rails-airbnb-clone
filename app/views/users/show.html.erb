@@ -1,59 +1,50 @@
 <!-- User Profile Banner  -->
-<div class="profile-banner banner">
+<div class="profile-banner padded text-center">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <img src="http://placehold.it/200x200" class="">
+        <img src="http://placehold.it/200x200" class="dashboard-img-round">
       </div>
-      <div class="col-xs-12 col-sm-8 text-left">
+      <!-- <div class="col-xs-12 col-sm-4">
+         <% if @user.photo? %>
+                <%= cl_image_tag @user.photo.path, class: "dashboard-img-round" %>
+         <% end %>
+      </div> -->
+      <div class="col-xs-12 col-sm-8 text-left text-white">
         <h2><%= @user.name %></h2>
-        <p><%= @user.bio %>Distinctio totam autem. Aut mollitia dicta velit consequatur molestiae ea enim. Qui dolorum molestiae adipisci est odio veniam.  Distinctio totam autem. Aut mollitia dicta velit consequatur molestiae ea enim. Qui dolorum molestiae adipisci est odio veniam.  Distinctio totam autem. Aut mollitia dicta velit co.</p>
-        <!-- <p><%#= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary" %></p> -->
+        <p class="dashboard-bio"><%= @user.bio %></p>
       </div>
     </div>
   </div>
 </div>
 
+
+<% if @user %>
+  <% banner_photo_path = ('images_uavnkt') %>
+<% end %>
 <!-- Beginning of Dashboard Info  -->
 <div class="wrapper-grey padded">
   <div class="container">
 
-    <!-- Users Acts which they've created and manage -->
-    <h2 class="text-center">Your acts</h2>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/blue_magpie.jpg');">
-          <div class="card-category">Rock</div>
-          <div class="card-description">
-            <h2>Blue Magpie Band</h2>
-            <p>Live Shows | Coporate Events</p>
+    <h2 class="text-center">Acts</h2>
+    <div class="dashboard-cards row">
+        <!-- Loops through all the users acts -->
+        <% @user.acts.each do |act| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path banner_photo_path %>');">
+            <div class="card-category">Rock</div>
+              <div class="card-description">
+                <h2><%= act.name %></h2>
+                <p><%= act.genre %> | <%= act.good_for %></p>
+              </div>
+               <% if @user.photo? %>
+              <%= cl_image_tag @user.photo.path, class: "card-user avatar avatar-large" %>
+              <% end %>
+              <a class="card-link" href="#" ></a>
+            </div>
           </div>
-          <img class="card-user avatar avatar-large" src="images/hamilton.jpeg">
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/hip_hop.png');">
-          <div class="card-category">Hip Hop DJ</div>
-          <div class="card-description">
-            <h2>DJ Jojo</h2>
-            <p>Weddings | Birthdays</p>
-          </div>
-          <img class="card-user avatar avatar-large" src="images/jojo.png">
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/beatles.jpg');">
-          <div class="card-category">Guitarist</div>
-          <div class="card-description">
-            <h2>Amin Malik</h2>
-            <p>Festivals | Funerals</p>
-          </div>
-          <img class="card-user avatar avatar-large" src="images/amin.jpeg">
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
+        <% end %>
     </div>
+
   </div>
 </div>

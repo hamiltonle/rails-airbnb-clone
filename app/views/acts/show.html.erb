@@ -64,21 +64,23 @@
     <div class="media-section">
       <h4>DESCRIPTION</h4>
       <div class="description">
-        <p><%= @act.description * 5 %></p>
+        <p><%= @act.description %></p>
       </div>
     </div>
+
+    <div class="media-section">
+      <h4>LISTED BY</h4>
+      <div class="listed-by">
+        <p><%= @act.users_id %></p>
+        <%= link_to "Learn more", user_path(@act.users_id), class: "btn purple-banner-button" %>
+      </div>
     </div>
+  </div>
 
 <!-- Update later with samples and reviews -->
     <!-- <div class="media-section">
       <h4>SAMPLES</h4>
       <div class="samples">
-      </div>
-    </div> -->
-
-    <!-- <div class="media-section">
-      <h4>REVIEWS</h4>
-      <div class="reviews">
       </div>
     </div> -->
 
@@ -92,8 +94,34 @@
       </div>
     </div>
   </div>
-</div>
 
+    <div class="media-section-reviews">
+      <h4>REVIEWS</h4>
+      <div class="reviews">
+      <div class="rating">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+        <p>
+          The guys were great! Such a hit, kept the dancefloor full, set up quickly, really well organised beforehand - can't fault them!
+        </p>
+        <br>
+      <div class="rating">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+        <p>
+        Hired these guys for my 30th birthday party and thought they were absolutely amazing.
+        </p>
+        <br>
+      <div class="rating">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+        <p>
+          I booked this band for my wedding in September. I have to say they were fantastic, the dance floor was full all night, they played a huge rage of music and made my night. Could not have wished for better. Thankyou so much to everyone involved in making my wedding day so enjoyable.
+        </p>
+      </div>
+    </div>
+
+</div>
 
 <!-- @Kiki,....here's the code for displaying user uploaded photos...Need to revise for our models -->
 <!--   <%# @product.photos.each do |photo| %>
