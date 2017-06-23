@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.act = @act
     @booking.save
-    redirect_to act_path(@act.id)
+    redirect_to dashboard_users_path
   end
 
   def edit

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.bio = "Bio's a bit empty :("
     @user.save
     redirect_to act_path
   end
