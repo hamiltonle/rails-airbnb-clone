@@ -6,7 +6,7 @@ class ActsController < ApplicationController
     elsif params[:good_for]
       @acts = Act.where(:good_for => params[:good_for])
     else
-      @acts = Act.all.reverse[0..20]
+      @acts = Act.all
     end
   end
 
@@ -32,7 +32,8 @@ class ActsController < ApplicationController
 
   def update
     @act = Act.find(params[:id])
-    @act = Act.update(act_params)
+    @act.update(act_params)
+    redirect_to act_path
   end
 
   def destroy
