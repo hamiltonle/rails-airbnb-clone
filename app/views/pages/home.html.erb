@@ -7,7 +7,7 @@
     <%= link_to "Book an act", acts_path, class: "btn btn-lg purple-banner-button" %>
     <%= link_to "Get booked", new_act_path, class: "btn btn-lg turqoise-banner-button" %>
     <% else %>
-    <%= link_to "Browse bands", acts_path, class: "btn purple-banner-button" %>
+    <%= link_to "Browse bands", acts_path, class: "btn btn-lg purple-banner-button" %>
     <% end %>
   </div>
 </div>
@@ -70,7 +70,7 @@
         </div>
       <% end %>
     </div>
-    <div class="row">
+    <div class="row padded">
       <div align="center">
       <h2 class="text-purple"> Find Acts by Genre </h2>
           <%= link_to "Rock", acts_path(:genre=>"Rock"), class: "btn btn-lg btn-purple" %>
