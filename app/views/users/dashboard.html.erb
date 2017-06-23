@@ -45,14 +45,14 @@
                 <p><%= booking.act.description %></p>
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                <li><a href=""><i class="fa fa-share"></i></a></li>
+                <li><a href=""><i class="fa fa-phone"></i></a></li>
+                <li><a href=""><i class="fa fa-wechat"></i></a></li>
                 <li><a href=""><i class="fa fa-star"></i></a></li>
               </ul>
             </div>
-
+            <%= link_to "", act_path(booking.act), class: "card-link" %>
           </div>
-
+          <a class="card-link" href="#" ></a>
 
 
 
@@ -102,10 +102,11 @@
                <% if @user.photo? %>
               <%= cl_image_tag @user.photo.path, class: "card-user avatar avatar-large" %>
               <% end %>
-              <a class="card-link" href="#" ></a>
+              <%= link_to "", act_path(act), class: "card-link" %>
             </div>
           </div>
         <% end %>
+
     </div>
 
 <!--     <!-- Users Acts which they've created and manage
