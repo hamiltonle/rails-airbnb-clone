@@ -7,41 +7,51 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-puts 'Creating 10 fake users with 2 acts each...'
+puts 'Creating 10 fake users with 1-3 acts each...'
 
 10.times do
 
-  user_seed = User.new(
+  user = User.new(
     email: Faker::Internet.email,
-    password: 'gigabeat',
-    password_confirmation: 'gigabeat'
+    password: 'bandwagon',
+    password_confirmation: 'bandwagon'
     )
+  puts "saved a user"
+  url = "https://source.unsplash.com/collection/138794/300x300"
 
-  user_seed.save
+  user.save!
+  user.photo_url = url
+  user.save!
+  puts "user photo done"
+  # Creating 1-3 acts for each user
+  (1..3).to_a.sample.times do
+    puts "seed"
 
+    act_seed = Act.new(
+      name: Faker::RockBand.name,
+      good_for: ["Parties", "Weddings", "Festivals", "Events", "Birthdays"].sample,
+      description: Faker::Lorem.paragraph,
+      photo: "",
+      users_id: nil,
+      genre: ["Rock", "Rap", "Acoustic", "Jazz", "Punk", "Pop"].sample
+      )
+    act_seed.user = user
+    act_seed.save!
 
-  # Creating 2 acts for each user
-  act_seed_1 = Act.new(
-    name: Faker::RockBand.name,
-    good_for: ["Parties", "Weddings", "Festivals"].sample,
-    description: Faker::Lorem.paragraph,
-    photo: "",
-    users_id: user_seed.id,
-    genre: ["Rock", "Rap", "Acoustic"].sample
-    )
+    urls = [
+      'https://source.unsplash.com/collection/383590',
+      'https://source.unsplash.com/collection/572418',
+      'https://source.unsplash.com/collection/520930',
+      'https://source.unsplash.com/collection/639550',
+      'https://source.unsplash.com/collection/632279'
+    ]
+    puts "act photos done"
 
-  act_seed_1.save!
+    act_seed.photo_urls = urls # Multi-upload happens here
+    act_seed.save!
 
-  act_seed_2 = Act.new(
-    name: Faker::RockBand.name,
-    good_for: ["Parties", "Weddings", "Festivals"].sample,
-    description: Faker::Lorem.paragraph,
-    photo: "",
-    users_id: user_seed.id,
-    genre: ["Rock", "Rap", "Acoustic"].sample
-    )
-
-  act_seed_2.save!
+    user.acts << act_seed
+  end
 
 end
 
