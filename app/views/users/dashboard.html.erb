@@ -27,10 +27,6 @@
   <div class="container">
 
 
-    <!-- Users requests of other acts (both confirmed and declined)  -->
-    <div class="dashboard-booked container">
-      <h2 class="text-center">Acts You've Booked</h2>
-      <div class="row">
 
 
     <!-- Appears if user doesn't have any data here  -->
@@ -50,53 +46,40 @@
       <h2 class="text-center text-purple">Your Upcoming Performances</h2>
     <% end %>
 
-          <div class="col-xs-12">
-            <div class="product">
-              <%= cl_image_tag card_photo_path, class: "product-image hidden-xs" %>
-              <div class='product-body'>
-                <h3><%= booking.act.name %> Good For: <%= booking.act.good_for %></h3>
-                <p><%= booking.act.description %></p>
-              </div>
-              <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><a href=""><i class="fa fa-phone"></i></a></li>
-                <li><a href=""><i class="fa fa-wechat"></i></a></li>
-                <li><a href=""><i class="fa fa-star"></i></a></li>
-              </ul>
-            </div>
-            <%= link_to "", act_path(booking.act), class: "card-link" %>
-          </div>
-          <a class="card-link" href="#" ></a>
-
-
     <div class="row">
 
       <% @booked_acts.each do |gig| %>
-
-        <% if gig.photo? %>
-          <% gig_photo_path = gig.photo.path %>
+        <% if gig.bookings.first.user.photo? %>
+          <% gig_photo_path = gig.bookings.first.user.photo.path %>
         <% else %>
           <% gig_photo_path = ('images_uavnkt') %>
         <% end %>
 
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path gig_photo_path %>');">
-            <div class="card-category">Rock</div>
-            <div class="card-description">
-              <h2><%= gig.name %></h2>
-              <p><%= gig.genre %> | <%= gig.good_for %></p>
+        <div class="col-xs-12">
+          <div class="product">
+            <%= cl_image_tag gig_photo_path, class: "product-image hidden-xs" %>
+            <div class='product-body'>
+              <h3><%= gig.bookings.first.user.name %></h3>
+              <p>Address: <%= gig.bookings.first.address %></p>
+              <p>When: <%= gig.bookings.first.time %></p>
             </div>
-            <% if @user.photo? %>
-              <%= cl_image_tag @user.photo.path, class: "card-user avatar avatar-large" %>
+            <% if gig.bookings.first.act.photos? %>
+              <%= cl_image_tag gig.bookings.first.act.photos.first.path, width: 50, height: 50, crop: :fill, class: "avatar-large" %>
             <% end %>
-            <a class="card-link" href="#" ></a>
+
           </div>
+          <%= link_to "", user_path(gig.bookings.first.user), class: "card-link" %>
+
         </div>
+
       <% end %>
     </div>
   </div>
 
+
+
   <!-- Users requests of other acts (both confirmed and declined)  -->
-    <div class="dashboard-margin container">
+    <div class="dashboard-booked container">
 
       <% unless @bookings.count == 0 %>
         <h2 class="text-center text-purple">Acts You've Booked</h2>
@@ -104,9 +87,8 @@
         <div class="row">
 
           <% @bookings.each do |booking| %>
-
-            <% if booking.act.photo? %>
-              <% card_photo_path = booking.act.photo.path %>
+            <% if booking.act.photos? %>
+              <% card_photo_path = booking.act.photos.first.path %>
             <% else %>
               <% card_photo_path = ('images_uavnkt') %>
             <% end %>
@@ -124,6 +106,8 @@
                   <li><a href=""><i class="fa fa-star"></i></a></li>
                 </ul>
               </div>
+              <%= link_to "", act_path(booking.act), class: "card-link" %>
+
             </div>
           <% end %>
        </div>
@@ -136,36 +120,39 @@
 
       <% unless @gigs.count == 0 %>
         <h2 class="text-center text-purple">Acts You've Created</h2>
+
       <% end %>
-      <div class="row">
-
-        <div class="text-center">
-          <%= link_to "Add an Act", new_act_path, class: "btn btn-lg purple-banner-button" %>
+      <div class="text-center">
+          <%= link_to "Add more acts", new_act_path, class: "btn btn-lg purple-banner-button" %>
         </div>
-
 
 
  <% if @user %>
   <% banner_photo_path = ('images_uavnkt') %>
 <% end %>
     <!-- Users Acts which they've created and manage -->
-    <h2 class="text-center">Acts You've Created</h2>
-    <div class="text-center">
-      <%= link_to "Add an Act", new_act_path, class: "btn purple-banner-button" %>
-    </div>
     <div class="dashboard-cards row">
 
         <!-- Loops through all the users acts -->
         <div class="dashboard-cards row">
           <% @gigs.each do |act| %>
+            <% if act.photos? %>
+              <% card_photo_path = act.photos.first.path %>
+            <% else %>
+              <% card_photo_path = ('images_uavnkt') %>
+            <% end %>
+
+
             <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path banner_photo_path %>');">
+              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path card_photo_path %>');">
                 <div class="card-category">Rock</div>
                 <div class="card-description">
                   <h2><%= act.name %></h2>
                   <p><%= act.genre %> | <%= act.good_for %></p>
                 </div>
-                
+              <% if @user.photo? %>
+                <%= cl_image_tag @user.photo.path, class: "card-user avatar avatar-large" %>
+              <% end %>
               <%= link_to "", act_path(act), class: "card-link" %>
             </div>
           </div>
