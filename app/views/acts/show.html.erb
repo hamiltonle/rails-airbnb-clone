@@ -74,7 +74,10 @@
         <% if @act.user.photo? %>
           <%= cl_image_tag @act.user.photo.path, class: "dashboard-img-round" %>
         <% end %>
-        <%= link_to "Learn more", user_path(@act.user_id), class: "btn purple-banner-button" %>
+        <% if @act.user.name? %>
+          <h2><%= @act.user.name %></h2>
+        <% end %>
+        <%= link_to "Talk to the Manager", user_path(@act.user_id), class: "btn purple-banner-button" %>
       </div>
     </div>
   </div>
