@@ -36,7 +36,7 @@
 <div class="wrapper" id="cards-section">
   <div class="container">
     <div class="row">
-      <% @acts.each do |act| %>
+      <% @acts.reverse[0..20].each do |act| %>
 
         <% if act.photos? %>
           <% card_photo_path = act.photos.first.path %>

@@ -6,7 +6,7 @@ class ActsController < ApplicationController
     elsif params[:good_for]
       @acts = Act.where(:good_for => params[:good_for])
     else
-      @acts = Act.all.reverse[0..20]
+      @acts = Act.all
     end
   end
 
